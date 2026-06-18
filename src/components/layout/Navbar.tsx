@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone, ChevronDown } from 'lucide-react'
@@ -58,17 +59,15 @@ export function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-ts-indigo to-ts-sky flex items-center justify-center">
-              <span className="text-white font-extrabold text-lg">T</span>
-            </div>
-            <span
-              className={`text-xl font-extrabold transition-colors ${
-                showSolidNav ? 'text-ts-navy' : 'text-white'
-              }`}
-            >
-              Talk<span className="text-ts-gold">Stars</span>
-            </span>
+          <Link href="/" className="flex items-center shrink-0 bg-white/80 backdrop-blur-sm p-1.5 rounded-xl">
+            <Image 
+              src="/logo.png" 
+              alt="TalkStars Logo" 
+              width={200} 
+              height={50} 
+              className="h-8 md:h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}

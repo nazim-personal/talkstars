@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import { SITE, FOOTER_LINKS } from '@/lib/constants'
 
@@ -25,13 +26,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 lg:gap-8">
           {/* Brand */}
           <div>
-            <Link href="/" className="inline-flex items-center gap-2">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-ts-indigo to-ts-sky flex items-center justify-center">
-                <span className="text-white font-extrabold text-lg">T</span>
-              </div>
-              <span className="text-xl font-extrabold text-white">
-                Talk<span className="text-ts-gold">Stars</span>
-              </span>
+            <Link href="/" className="inline-flex items-center bg-white/90 p-2 rounded-xl mb-2">
+              <Image 
+                src="/logo.png" 
+                alt="TalkStars Logo" 
+                width={200} 
+                height={50} 
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="mt-4 text-sm text-white/60 leading-relaxed max-w-xs">
               India&apos;s most trusted online spoken English platform. Build confidence with live classes &amp; expert trainers.

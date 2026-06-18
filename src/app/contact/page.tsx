@@ -50,17 +50,48 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              <div className="p-6 rounded-2xl bg-ts-offwhite border border-ts-lightgray">
+              <div className="p-6 rounded-2xl bg-ts-offwhite border border-ts-lightgray sm:col-span-2">
                 <MapPin className="w-8 h-8 text-ts-indigo mb-3" />
-                <h3 className="font-bold text-ts-navy mb-1">Address</h3>
-                <p className="text-sm text-gray-500">{SITE.address}</p>
+                <h3 className="font-bold text-ts-navy mb-4">Our Locations</h3>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-semibold text-ts-navy mb-2 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-ts-gold"></span>
+                      Head Office
+                    </h4>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      TalkStars Building, 1st floor<br />
+                      1 No. Gobinda Nagar, Madanpur<br />
+                      Nadia, West Bengal<br />
+                      PIN &ndash; 741245
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-ts-navy mb-2 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-ts-indigo"></span>
+                      Our Branches
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-sm text-gray-500 leading-relaxed flex items-start gap-2">
+                        <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-ts-indigo/50" />
+                        <span>Fakir para, Kankinara<br />West Bengal &ndash; 743126</span>
+                      </p>
+                      <p className="text-sm text-gray-500 leading-relaxed flex items-start gap-2">
+                        <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-ts-indigo/50" />
+                        <span>Pookkadasseril, Muvattupuzha<br />Kerala &ndash; 686673</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="p-6 rounded-2xl bg-ts-offwhite border border-ts-lightgray">
+              <div className="p-6 rounded-2xl bg-ts-offwhite border border-ts-lightgray sm:col-span-2">
                 <Clock className="w-8 h-8 text-ts-indigo mb-3" />
-                <h3 className="font-bold text-ts-navy mb-1">Hours</h3>
-                <p className="text-sm text-gray-500">Mon-Fri: 8AM – 9PM</p>
-                <p className="text-sm text-gray-500">Sat-Sun: 9AM – 6PM</p>
+                <h3 className="font-bold text-ts-navy mb-3">Hours</h3>
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                  <p className="text-sm text-gray-500"><strong className="text-gray-700">Mon-Fri:</strong> 8AM &ndash; 9PM</p>
+                  <p className="text-sm text-gray-500"><strong className="text-gray-700">Sat-Sun:</strong> 9AM &ndash; 6PM</p>
+                </div>
               </div>
             </div>
 
