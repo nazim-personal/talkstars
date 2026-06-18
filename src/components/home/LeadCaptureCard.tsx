@@ -60,13 +60,13 @@ export function LeadCaptureCard() {
 
   if (status === 'success') {
     return (
-      <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 text-center">
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
         <CheckCircle className="w-16 h-16 text-ts-lime mx-auto mb-4" />
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Thank You!</h3>
-        <p className="text-gray-600">{message}</p>
+        <h3 className="text-xl font-bold text-white mb-2">Thank You!</h3>
+        <p className="text-white/70">{message}</p>
         <button
           onClick={() => setStatus('idle')}
-          className="mt-6 px-6 py-2.5 rounded-xl bg-gray-100 text-gray-700 font-semibold hover:bg-gray-200 transition-colors"
+          className="mt-6 px-6 py-2.5 rounded-full bg-white/10 text-white text-sm font-semibold hover:bg-white/20 transition-colors"
         >
           Submit Another
         </button>
@@ -75,56 +75,47 @@ export function LeadCaptureCard() {
   }
 
   return (
-    <div className="bg-white rounded-[24px] shadow-2xl p-6 md:p-8 border border-gray-100">
-      <h3 className="text-[22px] font-bold text-gray-900 mb-1 tracking-tight">
-        Get a Free Counselling Session
+    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/20">
+      <h3 className="text-lg font-bold text-white mb-1">
+        Book Free Counselling
       </h3>
-      <p className="text-[15px] text-gray-500 mb-8">
-        Talk to an expert — find the right course for you.
+      <p className="text-sm text-white/60 mb-6">
+        Get expert guidance to choose the right course
       </p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-900 mb-1.5">
-            Your name
-          </label>
           <input
             {...register('name')}
-            placeholder="e.g. Priya Sharma"
-            className="w-full h-12 px-4 rounded-xl bg-white border border-gray-200 text-gray-900 placeholder:text-gray-400 text-[15px] focus:outline-none focus:border-[#2952CC] focus:ring-1 focus:ring-[#2952CC] transition-colors"
+            placeholder="Your Name"
+            className="w-full h-12 px-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-ts-gold focus:ring-1 focus:ring-ts-gold transition-colors"
           />
           {errors.name && (
-            <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.name.message}</p>
+            <p className="mt-1 text-xs text-red-400">{errors.name.message}</p>
           )}
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-900 mb-1.5">
-            WhatsApp number
-          </label>
           <input
             {...register('phone')}
-            placeholder="+91 98765 43210"
+            placeholder="Mobile Number (10 digits)"
             type="tel"
             maxLength={10}
-            className="w-full h-12 px-4 rounded-xl bg-white border border-gray-200 text-gray-900 placeholder:text-gray-400 text-[15px] focus:outline-none focus:border-[#2952CC] focus:ring-1 focus:ring-[#2952CC] transition-colors"
+            className="w-full h-12 px-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-ts-gold focus:ring-1 focus:ring-ts-gold transition-colors"
           />
           {errors.phone && (
-            <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.phone.message}</p>
+            <p className="mt-1 text-xs text-red-400">{errors.phone.message}</p>
           )}
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-900 mb-1.5">
-            I am a...
-          </label>
           <select
             {...register('type')}
-            className="w-full h-12 px-4 rounded-xl bg-white border border-gray-200 text-gray-900 text-[15px] focus:outline-none focus:border-[#2952CC] focus:ring-1 focus:ring-[#2952CC] transition-colors appearance-none cursor-pointer"
+            className="w-full h-12 px-4 rounded-xl bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:border-ts-gold focus:ring-1 focus:ring-ts-gold transition-colors appearance-none cursor-pointer"
             defaultValue=""
           >
-            <option value="" disabled className="text-gray-400">
-              Select your profile
+            <option value="" disabled className="text-gray-900">
+              I am a...
             </option>
             {PROFILE_TYPES.map((p) => (
               <option key={p.value} value={p.value} className="text-gray-900">
@@ -133,51 +124,34 @@ export function LeadCaptureCard() {
             ))}
           </select>
           {errors.type && (
-            <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.type.message}</p>
+            <p className="mt-1 text-xs text-red-400">{errors.type.message}</p>
           )}
         </div>
 
-        <div>
-          <label className="block text-sm font-semibold text-gray-900 mb-1.5">
-            Course interested in
-          </label>
-          <select
-            {...register('course')}
-            className="w-full h-12 px-4 rounded-xl bg-white border border-gray-200 text-gray-900 text-[15px] focus:outline-none focus:border-[#2952CC] focus:ring-1 focus:ring-[#2952CC] transition-colors appearance-none cursor-pointer"
-            defaultValue=""
-          >
-            <option value="" disabled className="text-gray-400">
-              Choose a course
-            </option>
-            <option value="spoken-english">Basic Spoken English</option>
-            <option value="individual-classes">1-on-1 Individual Classes</option>
-            <option value="advanced-english">Advanced English</option>
-            <option value="other">Not Sure Yet</option>
-          </select>
-        </div>
-
         <input type="hidden" {...register('city')} />
+        <input type="hidden" {...register('course')} />
 
         {status === 'error' && (
-          <p className="text-sm font-medium text-red-500 text-center">{message}</p>
+          <p className="text-xs text-red-400 text-center">{message}</p>
         )}
 
-        <div className="pt-2">
-          <button
-            type="submit"
-            disabled={status === 'loading'}
-            className="w-full h-12 rounded-xl bg-[#2952CC] text-white font-bold text-[15px] flex items-center justify-center gap-2 hover:bg-[#1A3A8F] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
-          >
-            {status === 'loading' ? (
-              <Loader2 className="w-5 h-5 animate-spin" />
-            ) : (
-              'Get Free Counselling'
-            )}
-          </button>
-        </div>
+        <button
+          type="submit"
+          disabled={status === 'loading'}
+          className="w-full h-12 rounded-xl bg-ts-gold text-white font-bold text-sm flex items-center justify-center gap-2 hover:bg-ts-gold/90 transition-all disabled:opacity-60 disabled:cursor-not-allowed shadow-lg shadow-ts-gold/25"
+        >
+          {status === 'loading' ? (
+            <Loader2 className="w-5 h-5 animate-spin" />
+          ) : (
+            <>
+              <Send className="w-4 h-4" />
+              Get Free Counselling
+            </>
+          )}
+        </button>
 
-        <p className="text-[13px] text-gray-500 font-medium text-center pt-2">
-          100% free. Your details stay private.
+        <p className="text-[11px] text-white/40 text-center leading-relaxed">
+          By submitting, you agree to receive updates via WhatsApp &amp; SMS
         </p>
       </form>
     </div>

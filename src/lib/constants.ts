@@ -15,10 +15,10 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'Courses', href: '/courses', badge: '9' },
+  { label: 'Courses', href: '/courses' },
   { label: 'About', href: '/about' },
-  { label: 'Students', href: '/#testimonials' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
 ] as const
 
 export const PROFILE_TYPES = [
