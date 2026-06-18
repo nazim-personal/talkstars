@@ -69,11 +69,8 @@ export default function PaymentForm({ course }: { course: any }) {
     }
   }
 
-  useEffect(() => {
-    if (paymentStatus === 'success') {
-      generatePDF()
-    }
-  }, [paymentStatus])
+  // We no longer automatically download the PDF on success
+  // User will click the button manually
 
   if (paymentStatus === 'success') {
     return (
@@ -84,7 +81,7 @@ export default function PaymentForm({ course }: { course: any }) {
           </div>
           <h1 className="text-3xl font-extrabold text-gray-900 mb-2">Payment Successful!</h1>
           <p className="text-gray-500 mb-8">
-            Thank you for enrolling in <span className="font-bold text-gray-800">{course.title}</span>. Your receipt has been downloaded automatically.
+            Thank you for enrolling in <span className="font-bold text-gray-800">{course.title}</span>. You can download your receipt below.
           </p>
           
           <div className="flex flex-col gap-3">
@@ -93,13 +90,13 @@ export default function PaymentForm({ course }: { course: any }) {
               className="w-full py-3 rounded-xl bg-ts-indigo text-white font-bold hover:bg-ts-navy transition-colors flex items-center justify-center gap-2"
             >
               <Download className="w-5 h-5" />
-              Download Receipt Again
+              Download Receipt
             </button>
             <Link 
               href="/"
               className="w-full py-3 rounded-xl bg-gray-100 text-gray-700 font-bold hover:bg-gray-200 transition-colors block text-center"
             >
-              Go to Dashboard
+              Go to Home
             </Link>
           </div>
         </div>
@@ -273,6 +270,7 @@ export default function PaymentForm({ course }: { course: any }) {
              </div>
              <div className="flex-1 pr-4">
                  <h3 className="font-bold text-gray-900 text-sm md:text-base leading-tight mt-0.5">{course.title}</h3>
+                 <p className="text-xs text-gray-500 mt-1">Duration: {course.duration}</p>
              </div>
              <div className="text-right">
                  <div className="font-bold text-gray-900">
@@ -291,6 +289,27 @@ export default function PaymentForm({ course }: { course: any }) {
         {/* Right Column - Order Summary Sidebar */}
         <div className="w-full lg:w-[400px] bg-gray-50 border-l border-gray-200 p-6 md:p-8 shrink-0">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Order summary</h2>
+          <div className="mb-6">
+            {typeof course.price === 'number' ? (
+              <>
+                <div className="flex items-end gap-2 flex-wrap">
+                  <span className="text-4xl font-extrabold text-gray-900 tracking-tight leading-none">
+                    ₹{totalPrice.toFixed(2)}
+                  </span>
+                  <span className="text-lg text-gray-500 line-through mb-0.5">
+                    ₹{(totalPrice * 6).toFixed(2)}
+                  </span>
+                  <span className="text-lg text-gray-600 mb-0.5">84% off</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-red-600 text-sm font-medium mt-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>4 hours left at this price!</span>
+                </div>
+              </>
+            ) : (
+              <span className="text-4xl font-extrabold text-gray-900 tracking-tight leading-none">{course.price}</span>
+            )}
+          </div>
           
           <div className="space-y-3 mb-4 text-gray-600">
             <div className="flex justify-between items-center">
