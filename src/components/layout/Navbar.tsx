@@ -43,6 +43,10 @@ export function Navbar() {
   const isHomePage = pathname === '/'
   const showSolidNav = scrolled || !isHomePage
 
+  if (pathname.startsWith('/payment')) {
+    return null;
+  }
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
