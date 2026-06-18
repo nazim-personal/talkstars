@@ -129,7 +129,25 @@ export function LeadCaptureCard() {
         </div>
 
         <input type="hidden" {...register('city')} />
-        <input type="hidden" {...register('course')} />
+        <div>
+          <select
+            {...register('course')}
+            className="w-full h-12 px-4 rounded-xl bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:border-ts-gold focus:ring-1 focus:ring-ts-gold transition-colors appearance-none cursor-pointer"
+            defaultValue=""
+          >
+            <option value="" disabled className="text-gray-900">
+              Choose a course
+            </option>
+            <option value="Basic Spoken English" className="text-gray-900">Basic Spoken English — ₹299</option>
+            <option value="Advanced Spoken English" className="text-gray-900">Advanced Spoken English — ₹999</option>
+            <option value="1-on-1 Coaching" className="text-gray-900">1-on-1 Coaching — ₹999</option>
+            <option value="Communication Skills" className="text-gray-900">Communication Skills</option>
+            <option value="Teachers Training" className="text-gray-900">Teachers Training</option>
+          </select>
+          {errors.course && (
+            <p className="mt-1 text-xs text-red-400">{errors.course.message}</p>
+          )}
+        </div>
 
         {status === 'error' && (
           <p className="text-xs text-red-400 text-center">{message}</p>

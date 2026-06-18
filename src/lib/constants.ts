@@ -334,6 +334,38 @@ export const TESTIMONIALS = [
     rating: 5,
     text: 'I joined TalkStars Advanced course to improve my business communication. The improvement was dramatic — my manager noticed the change in my presentation skills within a month. Best investment I have made in my career. Highly recommend!',
   },
+  {
+    id: 'priya',
+    name: 'Priya Sharma',
+    role: 'Job Seeker, Delhi',
+    image: IMAGES.testimonials.priya,
+    rating: 5,
+    text: 'I was struggling to clear interviews because of my broken English. The 1-on-1 coaching at TalkStars helped me overcome my fear and speak fluently. Within 2 months, I cracked an interview at a top MNC!',
+  },
+  {
+    id: 'amit',
+    name: 'Amit Patel',
+    role: 'Businessman, Ahmedabad',
+    image: IMAGES.testimonials.amit,
+    rating: 5,
+    text: 'As a business owner, dealing with international clients was tough for me. The Business Communication course taught me how to write professional emails and conduct meetings confidently in English.',
+  },
+  {
+    id: 'sneha',
+    name: 'Sneha Roy',
+    role: 'Teacher, Pune',
+    image: IMAGES.testimonials.sneha,
+    rating: 5,
+    text: 'The Teachers Training program is fantastic. I learned modern methodologies to teach English effectively. The certification has helped me secure a promotion at my school.',
+  },
+  {
+    id: 'vikram',
+    name: 'Vikram Singh',
+    role: 'College Student, Chandigarh',
+    image: IMAGES.testimonials.vikram,
+    rating: 4,
+    text: 'TalkStars provides a very friendly environment. The trainers make sure everyone participates in the group discussions. My spoken English and overall personality have improved a lot.',
+  },
 ] as const
 
 export const FAQS = [

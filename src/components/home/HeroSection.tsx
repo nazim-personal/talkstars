@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { IMAGES } from '@/lib/images'
@@ -92,14 +93,41 @@ export function HeroSection() {
                 />
               ))}
             </motion.div>
+
+            {/* Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
+              className="mt-10"
+            >
+              <div className="flex flex-col sm:flex-row items-center gap-4 mb-4">
+                <a
+                  href="#lead-capture"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-ts-gold text-ts-navy font-bold text-base text-center hover:bg-ts-gold/90 transition-all shadow-lg shadow-ts-gold/20 hover:scale-105"
+                >
+                  Book Free Class
+                </a>
+                <Link
+                  href="/courses"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-transparent border border-white/30 text-white font-bold text-base text-center hover:bg-white/10 transition-all hover:scale-105"
+                >
+                  Explore Courses
+                </Link>
+              </div>
+              <p className="text-sm text-white/50 text-center sm:text-left">
+                No payment needed to start. Cancel anytime.
+              </p>
+            </motion.div>
           </div>
 
           {/* Lead Capture Card */}
           <motion.div
+            id="lead-capture"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mx-4 lg:mx-0"
+            className="mx-4 lg:mx-0 scroll-mt-24"
           >
             <LeadCaptureCard />
           </motion.div>
