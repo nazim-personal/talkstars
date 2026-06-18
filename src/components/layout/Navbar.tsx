@@ -59,7 +59,7 @@ export function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0 bg-white/80 backdrop-blur-sm p-1.5 rounded-xl">
+          <Link href="/" className="flex items-center shrink-0 bg-white/95 px-2 py-1.5 rounded-lg shadow-sm">
             <Image 
               src="/logo.png" 
               alt="TalkStars Logo" 
@@ -180,7 +180,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-gray-100 z-50 lg:hidden"
+              className="absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-gray-100 z-50 lg:hidden max-h-[calc(100dvh-4rem)] md:max-h-[calc(100dvh-5rem)] overflow-y-auto"
             >
               <div className="px-4 py-4 space-y-1">
                 {NAV_LINKS.map((link) => {

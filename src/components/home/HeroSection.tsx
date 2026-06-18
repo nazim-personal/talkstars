@@ -43,7 +43,7 @@ export function HeroSection() {
               transition={{ duration: 0.5 }}
               className="inline-block mb-6"
             >
-              <span className="px-4 py-2 rounded-full bg-ts-gold/15 text-ts-gold text-sm font-semibold border border-ts-gold/20">
+              <span className="inline-block px-4 py-2 rounded-xl sm:rounded-full bg-ts-gold/15 text-ts-gold text-sm font-semibold border border-ts-gold/20 text-center sm:text-left">
                 🎓 ISO 9001:2015 Certified • Trusted by 10,000+ Students
               </span>
             </motion.div>
