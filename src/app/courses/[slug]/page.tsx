@@ -185,12 +185,20 @@ export default async function CourseDetailPage({ params }: Props) {
                   </div>
                 </div>
 
+                <Link
+                  href={`/payment/${course.slug}`}
+                  className="block w-full py-3.5 rounded-xl bg-ts-indigo text-white text-center font-bold hover:bg-ts-navy transition-colors shadow-lg shadow-ts-indigo/25 mb-3"
+                >
+                  Buy Now
+                </Link>
+
                 <a
                   href={`https://wa.me/${SITE.phoneRaw.replace('+', '')}?text=Hi!%20I'm%20interested%20in%20the%20${encodeURIComponent(course.title)}%20course.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full py-3.5 rounded-xl bg-ts-gold text-white text-center font-bold hover:bg-ts-gold/90 transition-colors shadow-lg shadow-ts-gold/25 mb-3"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-ts-gold text-white text-center font-bold hover:bg-ts-gold/90 transition-colors shadow-lg shadow-ts-gold/25 mb-3"
                 >
+                  <Phone className="w-4 h-4" />
                   Enroll via WhatsApp
                 </a>
 
