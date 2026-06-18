@@ -102,12 +102,12 @@ export function HeroSection() {
               className="mt-10"
             >
               <div className="flex flex-col sm:flex-row items-center gap-4 mb-4">
-                <a
-                  href="#lead-capture"
+                <Link
+                  href="/contact"
                   className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-ts-gold text-ts-navy font-bold text-base text-center hover:bg-ts-gold/90 transition-all shadow-lg shadow-ts-gold/20 hover:scale-105"
                 >
                   Book Free Class
-                </a>
+                </Link>
                 <Link
                   href="/courses"
                   className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-transparent border border-white/30 text-white font-bold text-base text-center hover:bg-white/10 transition-all hover:scale-105"
