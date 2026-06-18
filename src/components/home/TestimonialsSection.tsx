@@ -9,7 +9,20 @@ import { TESTIMONIALS } from '@/lib/constants'
 export function TestimonialsSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(1) // Default to 1 so left side is filled with index 0
+
+  // Scroll to index 1 on initial mount
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current
+      const items = Array.from(container.querySelectorAll('.testimonial-card')) as HTMLElement[]
+      if (items[1]) {
+        const item = items[1]
+        const scrollPosition = item.offsetLeft - container.clientWidth / 2 + item.offsetWidth / 2
+        container.scrollLeft = scrollPosition
+      }
+    }
+  }, [])
 
   const handleScroll = () => {
     if (scrollContainerRef.current) {
