@@ -6,6 +6,7 @@ interface JsonLdProps {
 export function JsonLd({ data }: JsonLdProps) {
   return (
     <script
+      key={data['@type'] || 'json-ld'}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
