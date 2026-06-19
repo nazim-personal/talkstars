@@ -395,10 +395,10 @@ export const FAQS = [
 ] as const
 
 export const FOUNDER = {
-  name: 'Aritra Saha',
+  name: 'Bishnu Sarkar',
   title: 'Founder & Lead Trainer',
   image: IMAGES.founder,
-  bio: 'With over 8 years of experience in English language training, Aritra Saha founded TalkStars with a mission to make quality spoken English education accessible to every Indian. Having trained 10,000+ students from across India, he believes that the ability to speak English confidently can transform lives and open doors to countless opportunities.',
+  bio: 'With over 8 years of experience in English language training, Bishnu Sarkar founded TalkStars with a mission to make quality spoken English education accessible to every Indian. Having trained 10,000+ students from across India, he believes that the ability to speak English confidently can transform lives and open doors to countless opportunities.',
   credentials: [
     'Certified English Language Trainer',
     'ISO 9001:2015 Certified Organization',

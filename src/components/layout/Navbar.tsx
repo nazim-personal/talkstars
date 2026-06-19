@@ -104,7 +104,11 @@ export function Navbar() {
                                 <li key={course.slug}>
                                   <Link
                                     href={`/courses/${course.slug}`}
-                                    className="block px-3 py-2 -mx-3 text-sm text-gray-600 hover:text-ts-indigo hover:bg-gray-50 rounded-lg transition-colors leading-snug"
+                                    className={`block px-3 py-2 -mx-3 text-sm rounded-lg transition-colors leading-snug ${
+                                      pathname === `/courses/${course.slug}`
+                                        ? 'text-ts-indigo bg-ts-indigo/5 font-semibold'
+                                        : 'text-gray-600 hover:text-ts-indigo hover:bg-gray-50'
+                                    }`}
                                   >
                                     {course.title}
                                   </Link>
@@ -217,7 +221,11 @@ export function Navbar() {
                                         <li key={course.slug}>
                                           <Link
                                             href={`/courses/${course.slug}`}
-                                            className="block py-2 text-sm text-gray-600 hover:text-ts-indigo"
+                                            className={`block py-2 text-sm transition-colors ${
+                                              pathname === `/courses/${course.slug}`
+                                                ? 'text-ts-indigo font-semibold'
+                                                : 'text-gray-600 hover:text-ts-indigo'
+                                            }`}
                                             onClick={() => setIsOpen(false)}
                                           >
                                             {course.title}

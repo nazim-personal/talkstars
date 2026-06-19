@@ -166,8 +166,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en-IN" className={`h-full antialiased ${plusJakartaSans.variable}`}>
-      <body className="min-h-full flex flex-col bg-white text-ts-navy">
+    <html lang="en-IN" className={`h-full antialiased ${plusJakartaSans.variable}`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-white text-ts-navy" suppressHydrationWarning>
         <JsonLd data={organizationSchema} />
         <JsonLd data={localBusinessSchema} />
         <EnvBadge />
