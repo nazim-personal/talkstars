@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useState } from 'react'
 import { CheckCircle } from 'lucide-react'
 import { IMAGES } from '@/lib/images'
 import { SITE } from '@/lib/constants'
@@ -37,14 +38,22 @@ const team = [
 import { PageBanner } from '@/components/shared/PageBanner'
 
 
+const mapUrls = {
+  headOffice: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14681.423719859296!2d88.487002!3d23.010705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8ea7d6f51f4d1%3A0x6e2c36b856a9a7a9!2sMadanpur%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+  branch1: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14704.991275997237!2d88.3898165!3d22.8672535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89a9f24cb562b%3A0xc3d56b054b48698c!2sKankinara%2C%20Bhatpara%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+  branch2: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.351052601265!2d76.5779035!3d9.9878205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07e59c0f38b1d9%3A0x868cb267ab332ff0!2sMuvattupuzha%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+}
+
 export function AboutClient() {
+  const [activeLocation, setActiveLocation] = useState<'headOffice' | 'branch1' | 'branch2'>('headOffice')
+
   return (
     <div className="bg-white">
       {/* 1. Hero Section */}
       <PageBanner 
         title="About Us"
         subtitle="Empowering India to Speak English with Confidence"
-        imageSrc="/about_banner.png"
+        imageSrc="https://picsum.photos/seed/ts-courses/1920/1080"
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-24">
@@ -181,13 +190,16 @@ export function AboutClient() {
             <div className="p-10 md:p-16 flex flex-col justify-center">
               <h2 className="text-3xl font-extrabold mb-8">Find us here</h2>
               <div className="space-y-8">
-                <div>
+                <div 
+                  className={`cursor-pointer transition-opacity ${activeLocation === 'headOffice' ? 'opacity-100' : 'opacity-60 hover:opacity-100'}`}
+                  onClick={() => setActiveLocation('headOffice')}
+                >
                   <h3 className="font-bold text-ts-gold mb-2 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-ts-gold"></span>
+                    <span className={`w-2 h-2 rounded-full ${activeLocation === 'headOffice' ? 'bg-ts-gold' : 'bg-ts-gold/50'}`}></span>
                     Head Office
                   </h3>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    TalkStars Building, 1st floor<br />
+                  <p className="text-white/80 leading-relaxed text-sm pointer-events-none">
+                    <strong className="text-white">TalkStars Building, 1st floor</strong><br />
                     1 No. Gobinda Nagar, Madanpur<br />
                     Nadia, West Bengal<br />
                     PIN – 741245
@@ -195,24 +207,44 @@ export function AboutClient() {
                 </div>
                 <div>
                   <h3 className="font-bold text-ts-gold mb-4 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-ts-gold"></span>
+                    <span className={`w-2 h-2 rounded-full ${activeLocation !== 'headOffice' ? 'bg-ts-gold' : 'bg-ts-gold/50'}`}></span>
                     Our Branches
                   </h3>
-                  <div className="space-y-4">
-                    <p className="text-white/80 leading-relaxed text-sm">
-                      <strong className="text-white">Fakir para, Kankinara</strong><br />
-                      West Bengal – 743126
-                    </p>
-                    <p className="text-white/80 leading-relaxed text-sm">
-                      <strong className="text-white">Pookkadasseril, Muvattupuzha</strong><br />
-                      Kerala – 686673
-                    </p>
+                  <div className="space-y-6">
+                    <div 
+                      className={`cursor-pointer transition-opacity ${activeLocation === 'branch1' ? 'opacity-100' : 'opacity-60 hover:opacity-100'}`}
+                      onClick={() => setActiveLocation('branch1')}
+                    >
+                      <p className="text-white/80 leading-relaxed text-sm pointer-events-none">
+                        <strong className="text-white">Fakir para, Kankinara</strong><br />
+                        West Bengal – 743126
+                      </p>
+                    </div>
+                    <div 
+                      className={`cursor-pointer transition-opacity ${activeLocation === 'branch2' ? 'opacity-100' : 'opacity-60 hover:opacity-100'}`}
+                      onClick={() => setActiveLocation('branch2')}
+                    >
+                      <p className="text-white/80 leading-relaxed text-sm pointer-events-none">
+                        <strong className="text-white">Pookkadasseril, Muvattupuzha</strong><br />
+                        Kerala – 686673
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="relative w-full h-64 md:h-auto">
-              <Image src="https://picsum.photos/seed/ts-office/800/800" alt="Office" fill className="object-cover" />
+            <div className="relative w-full h-64 md:h-auto min-h-[300px]">
+              <iframe
+                src={mapUrls[activeLocation]}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="TalkStars Location on Google Maps"
+                className="absolute inset-0 w-full h-full"
+              />
             </div>
           </div>
         </section>
