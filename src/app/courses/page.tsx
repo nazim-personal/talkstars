@@ -3,6 +3,8 @@ import { CourseCard } from '@/components/shared/CourseCard'
 import { SectionHeader } from '@/components/shared/SectionHeader'
 import { COURSES } from '@/lib/constants'
 
+import { PageBanner } from '@/components/shared/PageBanner'
+
 export const metadata: Metadata = {
   title: 'All Spoken English Courses',
   description:
@@ -23,13 +25,13 @@ export default function CoursesPage() {
   ] as const
 
   return (
-    <div className="pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="All Courses"
-          title="Choose Your Learning Path"
-          subtitle="We offer a range of courses designed for every level — from complete beginners to working professionals."
-        />
+    <>
+      <PageBanner 
+        title="Choose Your Learning Path"
+        subtitle="We offer a range of courses designed for every level — from complete beginners to working professionals."
+      />
+      <div className="pt-16 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {categories.map((cat) => {
           const filtered = COURSES.filter((c) => c.category === cat.key)
@@ -49,7 +51,8 @@ export default function CoursesPage() {
             </div>
           )
         })}
+        </div>
       </div>
-    </div>
+    </>
   )
 }

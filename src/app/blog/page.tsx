@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { IMAGES } from '@/lib/images'
 import { Rss } from 'lucide-react'
 
+import { PageBanner } from '@/components/shared/PageBanner'
+
 export const metadata: Metadata = {
   title: 'Blog — English Learning Tips & Guides',
   description:
@@ -38,19 +40,13 @@ const upcomingPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="inline-block mb-3 px-4 py-1.5 rounded-full text-sm font-semibold bg-ts-gold/10 text-ts-gold">
-            Blog
-          </span>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-ts-navy mb-4">
-            Learn &amp; Grow with TalkStars
-          </h1>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Expert tips, guides, and insights to help you on your English learning journey.
-          </p>
-        </div>
+    <>
+      <PageBanner 
+        title="Learn & Grow with TalkStars"
+        subtitle="Expert tips, guides, and insights to help you on your English learning journey."
+      />
+      <div className="pt-16 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Coming Soon Banner */}
         <div className="bg-gradient-to-br from-ts-indigo/5 to-ts-sky/5 border border-ts-lightgray rounded-2xl p-8 md:p-12 text-center mb-16">
@@ -99,7 +95,8 @@ export default function BlogPage() {
             </div>
           ))}
         </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }

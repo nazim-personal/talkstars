@@ -41,8 +41,8 @@ export function Navbar() {
     }
   }, [isOpen])
 
-  const isHomePage = pathname === '/'
-  const showSolidNav = scrolled || !isHomePage
+  const isTransparentNavPage = pathname === '/' || pathname === '/about' || pathname === '/contact' || pathname === '/blog' || pathname === '/courses'
+  const showSolidNav = scrolled || !isTransparentNavPage
 
   if (pathname.startsWith('/payment')) {
     return null;

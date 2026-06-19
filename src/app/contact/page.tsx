@@ -3,6 +3,8 @@ import { ContactForm } from './ContactForm'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { SITE } from '@/lib/constants'
 
+import { PageBanner } from '@/components/shared/PageBanner'
+
 export const metadata: Metadata = {
   title: 'Contact Us & Free Counselling',
   description:
@@ -14,19 +16,13 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="inline-block mb-3 px-4 py-1.5 rounded-full text-sm font-semibold bg-ts-gold/10 text-ts-gold">
-            Get in Touch
-          </span>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-ts-navy mb-4">
-            Contact Us
-          </h1>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Have questions? Book a free counselling session or reach out to us directly. We&apos;re here to help you start your English learning journey.
-          </p>
-        </div>
+    <>
+      <PageBanner 
+        title="Contact Us" 
+        subtitle="Have questions? Book a free counselling session or reach out to us directly. We're here to help you start your English learning journey."
+      />
+      <div className="pt-16 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="grid lg:grid-cols-[1fr_420px] gap-12 items-start">
           {/* Info Cards + Map */}
@@ -115,7 +111,8 @@ export default function ContactPage() {
             <ContactForm />
           </div>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
