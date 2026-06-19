@@ -4,12 +4,12 @@ import { TrustBar } from '@/components/home/TrustBar'
 import { CoursesSection } from '@/components/home/CoursesSection'
 import { JsonLd } from '@/components/seo/JsonLd'
 
-const WhyUsSection = dynamic(() => import('@/components/home/WhyUsSection').then(m => ({ default: m.WhyUsSection })))
-const HowItWorksSection = dynamic(() => import('@/components/home/HowItWorksSection').then(m => ({ default: m.HowItWorksSection })))
-const TestimonialsSection = dynamic(() => import('@/components/home/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })))
-const FounderSection = dynamic(() => import('@/components/home/FounderSection').then(m => ({ default: m.FounderSection })))
-const FaqSection = dynamic(() => import('@/components/home/FaqSection').then(m => ({ default: m.FaqSection })))
-const CtaSection = dynamic(() => import('@/components/home/CtaSection').then(m => ({ default: m.CtaSection })))
+import { WhyUsSection } from '@/components/home/WhyUsSection'
+import { HowItWorksSection } from '@/components/home/HowItWorksSection'
+import { TestimonialsSection } from '@/components/home/TestimonialsSection'
+import { FounderSection } from '@/components/home/FounderSection'
+import { FaqSection } from '@/components/home/FaqSection'
+import { CtaSection } from '@/components/home/CtaSection'
 
 
 const websiteSchema = {
