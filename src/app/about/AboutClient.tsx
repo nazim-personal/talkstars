@@ -139,7 +139,7 @@ export function AboutClient() {
 
         {/* 6. What keeps us going */}
         <section className="pb-24">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl font-extrabold text-ts-navy">What keeps us going</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
