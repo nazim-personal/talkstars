@@ -5,7 +5,6 @@ import { IMAGES } from '@/lib/images'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppButton } from '@/components/layout/WhatsAppButton'
-import { EnvBadge } from '@/components/shared/EnvBadge'
 import { JsonLd } from '@/components/seo/JsonLd'
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -14,6 +13,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   variable: '--font-sans',
   display: 'swap',
 })
+
+const isProd = process.env.NODE_ENV === 'production';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
@@ -36,9 +37,9 @@ export const metadata: Metadata = {
   creator: 'TalkStars',
   publisher: 'TalkStars',
   robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, 'max-image-preview': 'large' as const },
+    index: isProd,
+    follow: isProd,
+    googleBot: { index: isProd, follow: isProd, 'max-image-preview': 'large' as const },
   },
   openGraph: {
     type: 'website',
@@ -170,7 +171,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-white text-ts-navy" suppressHydrationWarning>
         <JsonLd data={organizationSchema} />
         <JsonLd data={localBusinessSchema} />
-        <EnvBadge />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

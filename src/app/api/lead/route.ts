@@ -20,12 +20,9 @@ export async function POST(req: NextRequest) {
       city: city || undefined,
       email: email || undefined,
       message: message || undefined,
-      env: process.env.NEXT_PUBLIC_ENV,
+      env: process.env.NODE_ENV,
       timestamp: new Date().toISOString(),
     })
-
-    // TODO (production): send to CRM / WhatsApp API / Google Sheets / email
-    // if (env.isProduction) { await sendToWhatsApp(body) }
 
     return NextResponse.json({
       success: true,
