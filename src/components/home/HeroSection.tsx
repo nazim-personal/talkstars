@@ -25,6 +25,7 @@ export function HeroSection() {
           fill
           className="object-cover opacity-[0.07]"
           priority
+          fetchPriority="high"
           sizes="100vw"
         />
       </div>

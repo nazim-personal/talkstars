@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, useCallback } from 'react'
 import Image from 'next/image'
 import { Star, Quote } from 'lucide-react'
 import { SectionHeader } from '@/components/shared/SectionHeader'
@@ -24,29 +24,39 @@ export function TestimonialsSection() {
     }
   }, [])
 
-  const handleScroll = () => {
-    if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current
-      const containerCenter = container.scrollLeft + container.clientWidth / 2
+  const rafRef = useRef<number | null>(null)
 
-      const items = Array.from(container.querySelectorAll('.testimonial-card')) as HTMLElement[]
-      let closestIndex = 0
-      let minDistance = Infinity
+  const handleScroll = useCallback(() => {
+    if (rafRef.current) return
+    rafRef.current = requestAnimationFrame(() => {
+      if (scrollContainerRef.current) {
+        const container = scrollContainerRef.current
+        const containerCenter = container.scrollLeft + container.clientWidth / 2
 
-      items.forEach((item, index) => {
-        const itemCenter = item.offsetLeft + item.offsetWidth / 2
-        const distance = Math.abs(containerCenter - itemCenter)
-        if (distance < minDistance) {
-          minDistance = distance
-          closestIndex = index
-        }
-      })
+        const items = Array.from(container.querySelectorAll('.testimonial-card')) as HTMLElement[]
+        let closestIndex = 0
+        let minDistance = Infinity
 
-      if (activeIndex !== closestIndex) {
-        setActiveIndex(closestIndex)
+        items.forEach((item, index) => {
+          const itemCenter = item.offsetLeft + item.offsetWidth / 2
+          const distance = Math.abs(containerCenter - itemCenter)
+          if (distance < minDistance) {
+            minDistance = distance
+            closestIndex = index
+          }
+        })
+
+        setActiveIndex(prev => prev !== closestIndex ? closestIndex : prev)
       }
+      rafRef.current = null
+    })
+  }, [])
+
+  useEffect(() => {
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
     }
-  }
+  }, [])
 
   const scrollToSlide = (index: number) => {
     if (scrollContainerRef.current) {
@@ -102,18 +112,13 @@ export function TestimonialsSection() {
 
         <div
           ref={scrollContainerRef}
-          className="flex overflow-x-auto gap-6 pb-12 pt-8 snap-x snap-mandatory"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          className="flex overflow-x-auto gap-6 pb-12 pt-8 snap-x snap-mandatory scrollbar-hide"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={() => setIsHovered(true)}
           onTouchEnd={() => setIsHovered(false)}
           onScroll={handleScroll}
         >
-          {/* Hide webkit scrollbar via inline styles */}
-          <style dangerouslySetInnerHTML={{ __html: `
-            div::-webkit-scrollbar { display: none; }
-          `}} />
           
           {/* Start Spacer to center the first item */}
           <div className="shrink-0 w-[calc(50%-160px)] md:w-[calc(50%-200px)]" />

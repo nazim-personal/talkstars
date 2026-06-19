@@ -33,6 +33,8 @@ export function Footer() {
                 width={200} 
                 height={50} 
                 className="h-10 w-auto"
+                sizes="200px"
+                loading="lazy"
               />
             </Link>
             <p className="mt-4 text-sm text-white/60 leading-relaxed max-w-xs">

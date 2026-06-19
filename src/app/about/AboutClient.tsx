@@ -74,6 +74,8 @@ export function AboutClient() {
               alt="Our Story"
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
             />
           </div>
         </section>
@@ -86,6 +88,8 @@ export function AboutClient() {
               alt="Our Vision"
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
             />
           </div>
           <div className="md:order-2">
@@ -144,12 +148,12 @@ export function AboutClient() {
                 <p className="font-bold text-ts-navy">Seeing our students achieve their dreams.</p>
               </div>
               <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-lg">
-                <Image src="https://picsum.photos/seed/ts-keep1/600/400" alt="Students" fill className="object-cover" />
+                <Image src="https://picsum.photos/seed/ts-keep1/600/400" alt="Students" fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
               </div>
             </div>
             <div className="space-y-6 md:-mt-12">
               <div className="relative w-full aspect-square rounded-3xl overflow-hidden shadow-lg">
-                <Image src="https://picsum.photos/seed/ts-keep2/600/600" alt="Team" fill className="object-cover" />
+                <Image src="https://picsum.photos/seed/ts-keep2/600/600" alt="Team" fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
               </div>
               <div className="bg-ts-indigo/10 p-6 rounded-3xl text-center">
                 <p className="font-bold text-ts-navy">Building a community of learners.</p>
@@ -160,7 +164,7 @@ export function AboutClient() {
                 <p className="font-bold text-ts-navy">Continuous innovation in education.</p>
               </div>
               <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-lg">
-                <Image src="https://picsum.photos/seed/ts-keep3/600/400" alt="Class" fill className="object-cover" />
+                <Image src="https://picsum.photos/seed/ts-keep3/600/400" alt="Class" fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
               </div>
             </div>
           </div>
@@ -175,7 +179,7 @@ export function AboutClient() {
             {team.map((member) => (
               <div key={member.name} className="text-center flex flex-col items-center">
                 <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden mb-4 shadow-md border-4 border-white">
-                  <Image src={member.image} alt={member.name} fill className="object-cover" />
+                  <Image src={member.image} alt={member.name} fill className="object-cover" sizes="(max-width: 768px) 96px, 128px" loading="lazy" />
                 </div>
                 <h3 className="font-bold text-ts-navy text-lg">{member.name}</h3>
                 <p className="text-sm text-gray-500">{member.role}</p>

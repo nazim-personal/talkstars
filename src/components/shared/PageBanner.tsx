@@ -21,6 +21,8 @@ export function PageBanner({
           fill
           className="object-cover"
           priority
+          fetchPriority="high"
+          sizes="100vw"
         />
         {/* Blue Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-ts-indigo/90 to-ts-indigo/60" />
