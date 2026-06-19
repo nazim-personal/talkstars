@@ -32,6 +32,7 @@ export const contactFormSchema = z.object({
     .string()
     .min(10, 'Message must be at least 10 characters')
     .max(500, 'Message must be under 500 characters'),
+  course: z.string().optional(),
   city: z.string().optional(),
 })
 
