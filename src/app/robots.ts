@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
   const base = process.env.NEXT_PUBLIC_SITE_URL!
-  const isProd = process.env.NODE_ENV === 'production'
+  const isProd = process.env.NEXT_PUBLIC_ENV === 'production'
 
   if (!isProd) {
     return {
