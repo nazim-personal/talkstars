@@ -26,12 +26,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 lg:gap-8">
           {/* Brand */}
           <div>
-            <Link href="/" className="inline-flex items-center bg-white/90 p-2 rounded-xl mb-2">
-              <Image 
-                src="/logo.png" 
-                alt="TalkStars Logo" 
-                width={200} 
-                height={50} 
+            <Link href="/" className="inline-flex items-center p-2 rounded-xl mb-2">
+              <Image
+                src="/logo.png"
+                alt="TalkStars Logo"
+                width={200}
+                height={50}
                 className="h-10 w-auto"
                 sizes="200px"
                 loading="lazy"

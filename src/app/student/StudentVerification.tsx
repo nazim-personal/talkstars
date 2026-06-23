@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Search, ShieldCheck, Download, Eye, AlertCircle } from 'lucide-react'
+import { Search, ShieldCheck, Download, Eye, AlertCircle, X } from 'lucide-react'
 
 // Mock Data
 const MOCK_STUDENT = {
@@ -16,6 +16,7 @@ export function StudentVerification() {
   const [studentId, setStudentId] = useState('')
   const [searched, setSearched] = useState(false)
   const [result, setResult] = useState<typeof MOCK_STUDENT | null>(null)
+  const [showPreview, setShowPreview] = useState(false)
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -104,14 +105,19 @@ export function StudentVerification() {
                     </h4>
                     <div className="flex flex-wrap gap-4">
                       <button 
-                        onClick={() => alert('View Certificate functionality coming soon!')}
+                        onClick={() => setShowPreview(true)}
                         className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl border-2 border-[#0038b8] text-[#0038b8] font-bold text-sm hover:bg-blue-50 transition-colors"
                       >
                         <Eye className="w-4 h-4" />
                         View Certificate
                       </button>
                       <button 
-                        onClick={() => alert('Download Certificate functionality coming soon!')}
+                        onClick={() => {
+                          const link = document.createElement('a')
+                          link.href = 'https://picsum.photos/seed/ts-certificate/1200/850'
+                          link.download = `certificate-${result.id}.jpg`
+                          link.click()
+                        }}
                         className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-[#0038b8] text-white font-bold text-sm hover:bg-[#002d94] transition-colors shadow-lg shadow-[#0038b8]/20"
                       >
                         <Download className="w-4 h-4" />
@@ -131,6 +137,34 @@ export function StudentVerification() {
               </p>
             </div>
           )}
+        </div>
+      )}
+
+      {/* Certificate Preview Modal */}
+      {showPreview && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ts-navy/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+          <div className="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-gray-50">
+              <h3 className="font-bold text-ts-navy">Certificate Preview</h3>
+              <button 
+                onClick={() => setShowPreview(false)}
+                className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-gray-700 transition-colors"
+                aria-label="Close preview"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            {/* Modal Body */}
+            <div className="w-full aspect-[1.414/1] bg-gray-100 flex items-center justify-center overflow-hidden">
+              <img 
+                src="https://picsum.photos/seed/ts-certificate/1200/850" 
+                alt="Certificate Preview" 
+                className="w-full h-full object-contain" 
+              />
+            </div>
+          </div>
         </div>
       )}
     </div>

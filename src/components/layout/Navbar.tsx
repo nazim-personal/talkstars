@@ -50,21 +50,20 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        showSolidNav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${showSolidNav
           ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0 bg-white/95 px-2 py-1.5 rounded-lg shadow-sm">
-            <Image 
-              src="/logo.png" 
-              alt="TalkStars Logo" 
-              width={200} 
-              height={50} 
+          <Link href="/" className="flex items-center shrink-0 px-2 py-1.5 rounded-lg">
+            <Image
+              src="/logo.png"
+              alt="TalkStars Logo"
+              width={200}
+              height={50}
               className="h-8 md:h-10 w-auto"
               priority
               sizes="200px"
@@ -79,15 +78,14 @@ export function Navbar() {
                   <div key={link.href} className="relative group">
                     <Link
                       href={link.href}
-                      className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                        pathname.startsWith('/courses')
+                      className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${pathname.startsWith('/courses')
                           ? showSolidNav
                             ? 'text-ts-indigo bg-ts-indigo/5'
                             : 'text-ts-gold'
                           : showSolidNav
                             ? 'text-gray-600 hover:text-ts-indigo hover:bg-gray-50'
                             : 'text-white/80 hover:text-white'
-                      }`}
+                        }`}
                     >
                       {link.label}
                       <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
@@ -105,11 +103,10 @@ export function Navbar() {
                                 <li key={course.slug}>
                                   <Link
                                     href={`/courses/${course.slug}`}
-                                    className={`block px-3 py-2 -mx-3 text-sm rounded-lg transition-colors leading-snug ${
-                                      pathname === `/courses/${course.slug}`
+                                    className={`block px-3 py-2 -mx-3 text-sm rounded-lg transition-colors leading-snug ${pathname === `/courses/${course.slug}`
                                         ? 'text-ts-indigo bg-ts-indigo/5 font-semibold'
                                         : 'text-gray-600 hover:text-ts-indigo hover:bg-gray-50'
-                                    }`}
+                                      }`}
                                   >
                                     {course.title}
                                   </Link>
@@ -128,15 +125,14 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                    pathname === link.href
+                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${pathname === link.href
                       ? showSolidNav
                         ? 'text-ts-indigo bg-ts-indigo/5'
                         : 'text-ts-gold'
                       : showSolidNav
                         ? 'text-gray-600 hover:text-ts-indigo hover:bg-gray-50'
                         : 'text-white/80 hover:text-white'
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -158,9 +154,8 @@ export function Navbar() {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`lg:hidden p-2 rounded-lg transition-colors ${
-                showSolidNav ? 'text-ts-navy hover:bg-gray-100' : 'text-white hover:bg-white/10'
-              }`}
+              className={`lg:hidden p-2 rounded-lg transition-colors ${showSolidNav ? 'text-ts-navy hover:bg-gray-100' : 'text-white hover:bg-white/10'
+                }`}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -194,11 +189,10 @@ export function Navbar() {
                       <div key={link.href}>
                         <button
                           onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
-                          className={`flex items-center justify-between w-full h-14 px-4 rounded-xl text-base font-semibold transition-colors ${
-                            pathname.startsWith('/courses')
+                          className={`flex items-center justify-between w-full h-14 px-4 rounded-xl text-base font-semibold transition-colors ${pathname.startsWith('/courses')
                               ? 'text-ts-indigo bg-ts-indigo/5'
                               : 'text-gray-700 hover:text-ts-indigo hover:bg-gray-50'
-                          }`}
+                            }`}
                         >
                           {link.label}
                           <ChevronDown className={`w-5 h-5 transition-transform ${mobileCoursesOpen ? 'rotate-180' : ''}`} />
@@ -222,11 +216,10 @@ export function Navbar() {
                                         <li key={course.slug}>
                                           <Link
                                             href={`/courses/${course.slug}`}
-                                            className={`block py-2 text-sm transition-colors ${
-                                              pathname === `/courses/${course.slug}`
+                                            className={`block py-2 text-sm transition-colors ${pathname === `/courses/${course.slug}`
                                                 ? 'text-ts-indigo font-semibold'
                                                 : 'text-gray-600 hover:text-ts-indigo'
-                                            }`}
+                                              }`}
                                             onClick={() => setIsOpen(false)}
                                           >
                                             {course.title}
@@ -248,11 +241,10 @@ export function Navbar() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`flex items-center h-14 px-4 rounded-xl text-base font-semibold transition-colors ${
-                        pathname === link.href
+                      className={`flex items-center h-14 px-4 rounded-xl text-base font-semibold transition-colors ${pathname === link.href
                           ? 'text-ts-indigo bg-ts-indigo/5'
                           : 'text-gray-700 hover:text-ts-indigo hover:bg-gray-50'
-                      }`}
+                        }`}
                     >
                       {link.label}
                     </Link>
