@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Send, Loader2, CheckCircle, User, Mail, Phone, BookOpen, PenLine, Lock } from 'lucide-react'
 import { contactFormSchema, type ContactFormData } from '@/lib/schema'
-import { getUserCity } from '@/lib/geo'
 
 export function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -21,11 +20,6 @@ export function ContactForm() {
     resolver: zodResolver(contactFormSchema),
   })
 
-  useEffect(() => {
-    getUserCity().then((city) => {
-      if (city) setValue('city', city)
-    })
-  }, [setValue])
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus('loading')

@@ -6,7 +6,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Send, Loader2, CheckCircle } from 'lucide-react'
 import { leadFormSchema, type LeadFormData } from '@/lib/schema'
 import { PROFILE_TYPES } from '@/lib/constants'
-import { getUserCity } from '@/lib/geo'
 
 export function LeadCaptureCard() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -29,11 +28,6 @@ export function LeadCaptureCard() {
     },
   })
 
-  useEffect(() => {
-    getUserCity().then((city) => {
-      if (city) setValue('city', city)
-    })
-  }, [setValue])
 
   const onSubmit = async (data: LeadFormData) => {
     setStatus('loading')
