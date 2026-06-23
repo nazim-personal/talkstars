@@ -426,7 +426,7 @@ export const FOOTER_LINKS = {
     { label: 'About Us', href: '/about' },
     { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
-    { label: 'Careers', href: '/contact' },
+    { label: 'Student', href: '/student' },
   ],
   support: [
     { label: 'Free Counselling', href: '/contact' },
