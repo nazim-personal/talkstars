@@ -146,7 +146,7 @@ export function Navbar() {
               href={`https://wa.me/${SITE.phoneRaw.replace('+', '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ts-indigo text-white font-bold text-sm hover:bg-ts-navy transition-all shadow-lg shadow-ts-indigo/25 hover:shadow-xl hover:shadow-ts-indigo/30"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ts-indigo text-white font-bold text-sm hover:bg-ts-gold transition-all shadow-lg shadow-ts-indigo/25 hover:shadow-xl hover:shadow-ts-gold/30"
             >
               <Phone className="w-4 h-4" />
               Free Counselling
@@ -255,7 +255,7 @@ export function Navbar() {
                     href={`https://wa.me/${SITE.phoneRaw.replace('+', '')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 h-14 rounded-xl bg-ts-indigo text-white font-bold text-base hover:bg-ts-navy transition-colors"
+                    className="flex items-center justify-center gap-2 h-14 rounded-xl bg-ts-indigo text-white font-bold text-base hover:bg-ts-gold transition-colors"
                   >
                     <Phone className="w-5 h-5" />
                     Free Counselling
