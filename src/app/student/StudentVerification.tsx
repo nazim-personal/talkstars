@@ -161,6 +161,7 @@ export function StudentVerification() {
               <img 
                 src="https://picsum.photos/seed/ts-certificate/1200/850" 
                 alt="Certificate Preview" 
+                loading="lazy"
                 className="w-full h-full object-contain" 
               />
             </div>

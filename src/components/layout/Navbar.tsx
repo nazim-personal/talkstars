@@ -83,8 +83,8 @@ export function Navbar() {
                             ? 'text-ts-indigo bg-ts-indigo/5'
                             : 'text-ts-gold'
                           : showSolidNav
-                            ? 'text-gray-600 hover:text-ts-indigo hover:bg-gray-50'
-                            : 'text-white/80 hover:text-white'
+                            ? 'text-gray-600 hover:text-ts-gold hover:bg-gray-50'
+                            : 'text-white/80 hover:text-ts-gold'
                         }`}
                     >
                       {link.label}
@@ -105,7 +105,7 @@ export function Navbar() {
                                     href={`/courses/${course.slug}`}
                                     className={`block px-3 py-2 -mx-3 text-sm rounded-lg transition-colors leading-snug ${pathname === `/courses/${course.slug}`
                                         ? 'text-ts-indigo bg-ts-indigo/5 font-semibold'
-                                        : 'text-gray-600 hover:text-ts-indigo hover:bg-gray-50'
+                                        : 'text-gray-600 hover:text-ts-gold hover:bg-gray-50'
                                       }`}
                                   >
                                     {course.title}
@@ -130,8 +130,8 @@ export function Navbar() {
                         ? 'text-ts-indigo bg-ts-indigo/5'
                         : 'text-ts-gold'
                       : showSolidNav
-                        ? 'text-gray-600 hover:text-ts-indigo hover:bg-gray-50'
-                        : 'text-white/80 hover:text-white'
+                        ? 'text-gray-600 hover:text-ts-gold hover:bg-gray-50'
+                        : 'text-white/80 hover:text-ts-gold'
                     }`}
                 >
                   {link.label}
@@ -191,7 +191,7 @@ export function Navbar() {
                           onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
                           className={`flex items-center justify-between w-full h-14 px-4 rounded-xl text-base font-semibold transition-colors ${pathname.startsWith('/courses')
                               ? 'text-ts-indigo bg-ts-indigo/5'
-                              : 'text-gray-700 hover:text-ts-indigo hover:bg-gray-50'
+                              : 'text-gray-700 hover:text-ts-gold hover:bg-gray-50'
                             }`}
                         >
                           {link.label}
@@ -218,7 +218,7 @@ export function Navbar() {
                                             href={`/courses/${course.slug}`}
                                             className={`block py-2 text-sm transition-colors ${pathname === `/courses/${course.slug}`
                                                 ? 'text-ts-indigo font-semibold'
-                                                : 'text-gray-600 hover:text-ts-indigo'
+                                                : 'text-gray-600 hover:text-ts-gold'
                                               }`}
                                             onClick={() => setIsOpen(false)}
                                           >
@@ -243,7 +243,7 @@ export function Navbar() {
                       href={link.href}
                       className={`flex items-center h-14 px-4 rounded-xl text-base font-semibold transition-colors ${pathname === link.href
                           ? 'text-ts-indigo bg-ts-indigo/5'
-                          : 'text-gray-700 hover:text-ts-indigo hover:bg-gray-50'
+                          : 'text-gray-700 hover:text-ts-gold hover:bg-gray-50'
                         }`}
                     >
                       {link.label}

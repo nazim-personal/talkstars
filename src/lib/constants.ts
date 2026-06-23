@@ -429,7 +429,7 @@ export const FOOTER_LINKS = {
     { label: 'Student', href: '/student' },
   ],
   support: [
-    { label: 'Free Counselling', href: '/contact' },
+    { label: 'Free Counselling', href: 'https://wa.me/919153506542' },
     { label: 'FAQ', href: '/#faq' },
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms & Conditions', href: '/terms' },

@@ -31,7 +31,9 @@ export function CtaSection() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/contact"
+              href={`https://wa.me/${SITE.phoneRaw.replace('+', '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-ts-gold text-white font-bold text-base hover:bg-ts-gold/90 transition-all shadow-lg shadow-ts-gold/25 hover:shadow-xl hover:shadow-ts-gold/30"
             >
               Get Free Counselling
